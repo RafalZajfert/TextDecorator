@@ -41,7 +41,7 @@ publish {
     artifactId = 'text-decorator'
     publishVersion = '1.0.0'
     desc = 'Library to simplify android text styling'
-    website = 'https://github.com/rSquared-software/RestApi'
+    website = 'https://github.com/rSquared-software/TextDecorator'
     bintrayUser = properties.getProperty("bintray.oss.user")
     bintrayKey = properties.getProperty("bintray.apikey")
 }
