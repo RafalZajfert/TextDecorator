@@ -6,12 +6,12 @@ import android.text.style.UnderlineSpan;
 /**
  * @author Rafal Zajfert
  */
-class UnderlineStyle extends SpanStyle {
+class UnderlineTextDecorator extends SpanTextDecorator {
 
     /**
      * @see UnderlineSpan#UnderlineSpan()
      */
-    public UnderlineStyle() {
+    public UnderlineTextDecorator() {
     }
 
     @Override

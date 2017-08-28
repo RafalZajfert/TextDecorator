@@ -7,7 +7,7 @@ import android.text.style.RelativeSizeSpan;
 /**
  * @author Rafal Zajfert
  */
-class SizeStyle extends SpanStyle {
+class SizeTextDecorator extends SpanTextDecorator {
 
     private final Integer size;
     private final boolean dip;
@@ -17,14 +17,14 @@ class SizeStyle extends SpanStyle {
     /**
      * @see AbsoluteSizeSpan#AbsoluteSizeSpan(int)
      */
-    SizeStyle(int size) {
+    SizeTextDecorator(int size) {
         this(size, true);
     }
 
     /**
      * @see AbsoluteSizeSpan#AbsoluteSizeSpan(int, boolean)
      */
-    SizeStyle(int size, boolean dip) {
+    SizeTextDecorator(int size, boolean dip) {
         this.size = size;
         this.dip = dip;
         this.proportion = null;
@@ -33,7 +33,7 @@ class SizeStyle extends SpanStyle {
     /**
      * @see RelativeSizeSpan#RelativeSizeSpan(float)
      */
-    SizeStyle(float proportion) {
+    SizeTextDecorator(float proportion) {
         this.size = null;
         this.dip = false;
         this.proportion = proportion;

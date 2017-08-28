@@ -6,7 +6,7 @@ import android.text.SpannableStringBuilder;
  * @author Rafal Zajfert
  */
 @Deprecated
-class ImageStyle extends SpanStyle {
+class ImageTextDecorator extends SpanTextDecorator {
 
 
     @Override

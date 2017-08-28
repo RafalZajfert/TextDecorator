@@ -7,7 +7,7 @@ import android.text.style.MaskFilterSpan;
 /**
  * @author Rafal Zajfert
  */
-class BlurStyle extends SpanStyle {
+class BlurTextDecorator extends SpanTextDecorator {
 
     private final float radius;
     private final BlurMaskFilter.Blur style;
@@ -15,7 +15,7 @@ class BlurStyle extends SpanStyle {
     /**
      * @see BlurMaskFilter#BlurMaskFilter(float, BlurMaskFilter.Blur)
      */
-    BlurStyle(float radius, BlurMaskFilter.Blur style) {
+    BlurTextDecorator(float radius, BlurMaskFilter.Blur style) {
         this.radius = radius;
         this.style = style;
     }

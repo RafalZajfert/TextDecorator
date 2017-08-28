@@ -9,7 +9,7 @@ import android.text.style.TextAppearanceSpan;
 /**
  * @author Rafal Zajfert
  */
-class StyleStyle extends SpanStyle {
+class StyleTextDecorator extends SpanTextDecorator {
 
     private Context context;
     private final int appearance;
@@ -23,14 +23,14 @@ class StyleStyle extends SpanStyle {
     /**
      * @see TextAppearanceSpan#TextAppearanceSpan(Context, int)
      */
-    StyleStyle(Context context, @StyleRes int appearance) {
+    StyleTextDecorator(Context context, @StyleRes int appearance) {
         this(context, appearance, -1);
     }
 
     /**
      * @see TextAppearanceSpan#TextAppearanceSpan(Context, int, int)
      */
-    StyleStyle(Context context, @StyleRes int appearance, int colorList) {
+    StyleTextDecorator(Context context, @StyleRes int appearance, int colorList) {
         this.context = context;
         this.appearance = appearance;
         this.colorList = colorList;
@@ -44,7 +44,7 @@ class StyleStyle extends SpanStyle {
     /**
      * @see TextAppearanceSpan#TextAppearanceSpan(String, int, int, ColorStateList, ColorStateList)
      */
-    StyleStyle(String family, int style, int size, ColorStateList color, ColorStateList linkColor) {
+    StyleTextDecorator(String family, int style, int size, ColorStateList color, ColorStateList linkColor) {
         this.appearance = -1;
         this.colorList = -1;
         this.family = family;

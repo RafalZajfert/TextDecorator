@@ -10,7 +10,7 @@ import android.widget.TextView;
 /**
  * @author Rafal Zajfert
  */
-class ClickStyle extends SpanStyle {
+class ClickTextDecorator extends SpanTextDecorator {
 
     private final View.OnClickListener listener;
 
@@ -19,7 +19,7 @@ class ClickStyle extends SpanStyle {
      *
      * @see ClickableSpan#ClickableSpan()
      */
-    ClickStyle(View.OnClickListener listener) {
+    ClickTextDecorator(View.OnClickListener listener) {
         this.listener = listener;
     }
 

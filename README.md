@@ -5,7 +5,7 @@ Library to simplify android text styling
 
 ```Gradle
 dependencies {
-    compile 'software.rsquared:text-decorator:1.0.0'
+    compile 'software.rsquared:text-decorator:1.0.1'
 }
 ```
 
@@ -14,20 +14,23 @@ dependencies {
 ## Sample Usage
 
 ```java
-Text text = Text.create("Text", Style.color(this, R.color.colorPrimary), Style.bold())
+Text text = new Text("Test", Text.color(this, R.color.colorPrimary).bold())
         .append(" ")
-        .append("clickable", Style.color(Color.RED), Style.underline(), Style.click(new View.OnClickListener() {
+        .append("clickable", Text.color(Color.RED).underline().click(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Clicked! :D", Toast.LENGTH_SHORT).show();
             }
         }))
-        .append("2", Style.superscript(), Style.size(0.5f), Style.color(Color.BLUE))
+        .append("2", Text.superscript().size(0.5f).color(Color.BLUE))
+        .withContext(getContext())
         .append(" ")
-        .append("text", Style.strikethrough(), Style.italic(), Style.backgroundColor(this, R.color.colorAccent));
+        .append(R.string.app_name, Text.strikethrough().italic().backgroundColor(this, R.color.colorAccent));
 
 textView.setText(text);
 ```
+
+\* StringRes can be used only if previously context will be set with method `text.withContext(Context)` or `Text` constructor
 
 #### Available styles
 * Style.backgroundColor

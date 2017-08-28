@@ -7,17 +7,16 @@ import android.text.style.StyleSpan;
 /**
  * @author Rafal Zajfert
  */
-class ItalicStyle extends SpanStyle {
-
+class NormalTextDecorator extends SpanTextDecorator {
 
     /**
-     * @see Typeface#ITALIC
+     * @see Typeface#NORMAL
      */
-    ItalicStyle() {
+    NormalTextDecorator() {
     }
 
     @Override
     void apply(SpannableStringBuilder builder, int start, int end) {
-        apply(builder, start, end, new StyleSpan(Typeface.ITALIC));
+        apply(builder, start, end, new StyleSpan(Typeface.NORMAL));
     }
 }

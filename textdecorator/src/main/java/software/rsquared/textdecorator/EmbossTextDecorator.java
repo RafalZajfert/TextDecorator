@@ -7,7 +7,7 @@ import android.text.style.MaskFilterSpan;
 /**
  * @author Rafal Zajfert
  */
-class EmbossStyle extends SpanStyle {
+class EmbossTextDecorator extends SpanTextDecorator {
 
     private final float[] direction;
     private final float ambient;
@@ -17,7 +17,7 @@ class EmbossStyle extends SpanStyle {
     /**
      * @see EmbossMaskFilter#EmbossMaskFilter(float[], float, float, float)
      */
-    EmbossStyle(float[] direction, float ambient, float specular, float blurRadius) {
+    EmbossTextDecorator(float[] direction, float ambient, float specular, float blurRadius) {
         this.direction = direction;
         this.ambient = ambient;
         this.specular = specular;

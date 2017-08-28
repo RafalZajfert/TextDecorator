@@ -5,32 +5,32 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.v4.content.ContextCompat;
 import android.text.SpannableStringBuilder;
-import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 
 /**
  * @author Rafal Zajfert
  */
-class BackgroundColorStyle extends SpanStyle {
+class ColorTextDecorator extends SpanTextDecorator {
 
     @ColorInt
     private final int color;
 
     /**
-     * @see BackgroundColorSpan#BackgroundColorSpan(int)
+     * @see ForegroundColorSpan#ForegroundColorSpan(int)
      */
-    BackgroundColorStyle(@ColorInt int color) {
+    ColorTextDecorator(@ColorInt int color) {
         this.color = color;
     }
 
     /**
-     * @see BackgroundColorSpan#BackgroundColorSpan(int)
+     * @see ForegroundColorSpan#ForegroundColorSpan(int)
      */
-    BackgroundColorStyle(Context context, @ColorRes int color) {
+    ColorTextDecorator(Context context, @ColorRes int color) {
         this.color = ContextCompat.getColor(context, color);
     }
 
     @Override
     void apply(SpannableStringBuilder builder, int start, int end) {
-        apply(builder, start, end, new BackgroundColorSpan(color));
+        apply(builder, start, end, new ForegroundColorSpan(color));
     }
 }

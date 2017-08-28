@@ -6,7 +6,7 @@ import android.text.SpannableStringBuilder;
 /**
  * @author Rafal Zajfert
  */
-abstract class SpanStyle extends Style {
+abstract class SpanTextDecorator extends TextDecorator {
 
     void apply(SpannableStringBuilder builder, int start, int end, Object style) {
         if (style != null) {

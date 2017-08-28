@@ -1,22 +1,22 @@
 package software.rsquared.textdecorator;
 
-import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
-import android.text.style.StyleSpan;
+import android.text.style.SubscriptSpan;
 
 /**
  * @author Rafal Zajfert
  */
-class BoldStyle extends SpanStyle {
+class SubscriptTextDecorator extends SpanTextDecorator {
 
     /**
-     * @see Typeface#BOLD
+     * @see SubscriptSpan#SubscriptSpan()
      */
-    public BoldStyle() {
+    SubscriptTextDecorator() {
     }
 
     @Override
     void apply(SpannableStringBuilder builder, int start, int end) {
-        apply(builder, start, end, new StyleSpan(Typeface.BOLD));
+        apply(builder, start, end, new SubscriptSpan());
+
     }
 }

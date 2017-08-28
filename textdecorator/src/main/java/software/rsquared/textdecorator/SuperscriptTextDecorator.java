@@ -6,12 +6,12 @@ import android.text.style.SuperscriptSpan;
 /**
  * @author Rafal Zajfert
  */
-class SuperscriptStyle extends SpanStyle {
+class SuperscriptTextDecorator extends SpanTextDecorator {
 
     /**
      * @see SuperscriptSpan#SuperscriptSpan()
      */
-    SuperscriptStyle() {
+    SuperscriptTextDecorator() {
     }
 
     @Override

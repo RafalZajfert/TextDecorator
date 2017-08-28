@@ -12,7 +12,7 @@ import java.util.Locale;
  * @author Rafal Zajfert
  */
 @RequiresApi(api = Build.VERSION_CODES.N)
-class LocaleStyle extends SpanStyle {
+class LocaleTextDecorator extends SpanTextDecorator {
 
     private final LocaleList localeList;
     private final Locale locale;
@@ -20,7 +20,7 @@ class LocaleStyle extends SpanStyle {
     /**
      * @see LocaleSpan#LocaleSpan(LocaleList)
      */
-    LocaleStyle(LocaleList localeList) {
+    LocaleTextDecorator(LocaleList localeList) {
         this.localeList = localeList;
         this.locale = null;
     }
@@ -28,7 +28,7 @@ class LocaleStyle extends SpanStyle {
     /**
      * @see LocaleSpan#LocaleSpan(Locale)
      */
-    LocaleStyle(Locale locale) {
+    LocaleTextDecorator(Locale locale) {
         this.localeList = null;
         this.locale = locale;
     }

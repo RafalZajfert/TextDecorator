@@ -39,7 +39,7 @@ publish {
     userOrg = 'rsquared'
     groupId = 'software.rsquared'
     artifactId = 'text-decorator'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'Library to simplify android text styling'
     website = 'https://github.com/rSquared-software/TextDecorator'
     bintrayUser = properties.getProperty("bintray.oss.user")

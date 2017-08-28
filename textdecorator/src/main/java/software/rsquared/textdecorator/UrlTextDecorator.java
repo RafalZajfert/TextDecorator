@@ -6,14 +6,14 @@ import android.text.style.URLSpan;
 /**
  * @author Rafal Zajfert
  */
-class UrlStyle extends SpanStyle {
+class UrlTextDecorator extends SpanTextDecorator {
 
     private final String url;
 
     /**
      * @see URLSpan#URLSpan(String)
      */
-    UrlStyle(String url) {
+    UrlTextDecorator(String url) {
         this.url = url;
     }
 

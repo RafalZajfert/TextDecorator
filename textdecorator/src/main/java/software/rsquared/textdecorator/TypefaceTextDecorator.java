@@ -6,14 +6,14 @@ import android.text.style.TypefaceSpan;
 /**
  * @author Rafal Zajfert
  */
-class TypefaceStyle extends SpanStyle {
+class TypefaceTextDecorator extends SpanTextDecorator {
 
     private final String typeface;
 
     /**
      * @see TypefaceSpan#TypefaceSpan(String)
      */
-    TypefaceStyle(String typeface) {
+    TypefaceTextDecorator(String typeface) {
         this.typeface = typeface;
     }
 

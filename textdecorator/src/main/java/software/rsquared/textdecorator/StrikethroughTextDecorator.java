@@ -6,12 +6,12 @@ import android.text.style.StrikethroughSpan;
 /**
  * @author Rafal Zajfert
  */
-class StrikethroughStyle extends SpanStyle {
+class StrikethroughTextDecorator extends SpanTextDecorator {
 
     /**
      * @see StrikethroughSpan#StrikethroughSpan()
      */
-    public StrikethroughStyle() {
+    public StrikethroughTextDecorator() {
     }
 
     @Override

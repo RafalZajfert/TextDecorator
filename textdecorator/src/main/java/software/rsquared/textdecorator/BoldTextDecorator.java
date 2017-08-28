@@ -7,16 +7,16 @@ import android.text.style.StyleSpan;
 /**
  * @author Rafal Zajfert
  */
-class NormalStyle extends SpanStyle {
+class BoldTextDecorator extends SpanTextDecorator {
 
     /**
-     * @see Typeface#NORMAL
+     * @see Typeface#BOLD
      */
-    NormalStyle() {
+    public BoldTextDecorator() {
     }
 
     @Override
     void apply(SpannableStringBuilder builder, int start, int end) {
-        apply(builder, start, end, new StyleSpan(Typeface.NORMAL));
+        apply(builder, start, end, new StyleSpan(Typeface.BOLD));
     }
 }

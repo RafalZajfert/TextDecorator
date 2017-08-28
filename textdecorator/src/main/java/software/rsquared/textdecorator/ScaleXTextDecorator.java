@@ -6,14 +6,14 @@ import android.text.style.ScaleXSpan;
 /**
  * @author Rafal Zajfert
  */
-class ScaleXStyle extends SpanStyle {
+class ScaleXTextDecorator extends SpanTextDecorator {
 
     private final float proportion;
 
     /**
      * @see ScaleXSpan#ScaleXSpan(float)
      */
-    ScaleXStyle(float proportion) {
+    ScaleXTextDecorator(float proportion) {
         this.proportion = proportion;
     }
 
