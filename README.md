@@ -32,26 +32,26 @@ textView.setText(text);
 
 \* StringRes can be used only if previously context will be set with method `text.withContext(Context)` or `Text` constructor
 
-#### Available styles
-* Style.backgroundColor
-* Style.blur
-* Style.bold
-* Style.click
-* Style.color
-* Style.color
-* Style.emboss
-* Style.italic
-* Style.locale
-* Style.normal
-* Style.scaleX
-* Style.size
-* Style.strikethrough
-* Style.style
-* Style.subscript
-* Style.superscript
-* Style.typeface
-* Style.underline
-* Style.url
+#### Available decorators
+* Text.backgroundColor
+* Text.blur
+* Text.bold
+* Text.click
+* Text.color
+* Text.color
+* Text.emboss
+* Text.italic
+* Text.locale
+* Text.normal
+* Text.scaleX
+* Text.size
+* Text.strikethrough
+* Text.style
+* Text.subscript
+* Text.superscript
+* Text.typeface
+* Text.underline
+* Text.url
 
 ## Developed By
 
