@@ -41,329 +41,340 @@ import java.util.Locale;
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class Text implements Spannable {
-    private SpannableStringBuilder builder = new SpannableStringBuilder();
-    private Context context;
 
-    public Text() {
-    }
+	public static boolean NULL_AS_EMPTY = false;
 
-    public Text(Context context) {
-        this.context = context;
-    }
+	private SpannableStringBuilder builder = new SpannableStringBuilder();
+	private Context context;
 
-    public Text(CharSequence text) {
-        append(text, new TextDecoratorBuilder());
-    }
+	public Text() {
+	}
 
-    public Text(Context context, @StringRes int text) {
-        this.context = context;
-        append(text, new TextDecoratorBuilder());
-    }
+	public Text(Context context) {
+		this.context = context;
+	}
 
-    public Text(Context context, CharSequence text) {
-        this.context = context;
-        append(text, new TextDecoratorBuilder());
-    }
+	public Text(CharSequence text) {
+		append(text, new TextDecoratorBuilder());
+	}
 
-    public Text(CharSequence text, TextDecorator... textDecorators) {
-        append(text, new TextDecoratorBuilder(textDecorators));
-    }
+	public Text(Context context, @StringRes int text) {
+		this.context = context;
+		append(text, new TextDecoratorBuilder());
+	}
 
-    public Text(Context context, @StringRes int text, TextDecorator... textDecorators) {
-        this.context = context;
-        append(text, new TextDecoratorBuilder(textDecorators));
-    }
+	public Text(Context context, CharSequence text) {
+		this.context = context;
+		append(text, new TextDecoratorBuilder());
+	}
 
-    public Text(Context context, CharSequence text, TextDecorator... textDecorators) {
-        this.context = context;
-        append(text, new TextDecoratorBuilder(textDecorators));
-    }
+	public Text(CharSequence text, TextDecorator... textDecorators) {
+		append(text, new TextDecoratorBuilder(textDecorators));
+	}
 
-    public Text(CharSequence text, TextDecoratorBuilder styles) {
-        append(text, styles);
-    }
+	public Text(Context context, @StringRes int text, TextDecorator... textDecorators) {
+		this.context = context;
+		append(text, new TextDecoratorBuilder(textDecorators));
+	}
 
-    public Text(Context context, @StringRes int text, TextDecoratorBuilder styles) {
-        this.context = context;
-        append(text, styles);
-    }
+	public Text(Context context, CharSequence text, TextDecorator... textDecorators) {
+		this.context = context;
+		append(text, new TextDecoratorBuilder(textDecorators));
+	}
 
-    public Text(Context context, CharSequence text, TextDecoratorBuilder styles) {
-        this.context = context;
-        append(text, styles);
-    }
+	public Text(CharSequence text, TextDecoratorBuilder styles) {
+		append(text, styles);
+	}
 
-    public Text withContext(Context context){
-        this.context = context;
-        return this;
-    }
+	public Text(Context context, @StringRes int text, TextDecoratorBuilder styles) {
+		this.context = context;
+		append(text, styles);
+	}
 
-    /**
-     * @see BackgroundColorSpan#BackgroundColorSpan(int)
-     */
-    public static TextDecoratorBuilder backgroundColor(@ColorInt int color) {
-        return new TextDecoratorBuilder(new BackgroundColorTextDecorator(color));
-    }
+	public Text(Context context, CharSequence text, TextDecoratorBuilder styles) {
+		this.context = context;
+		append(text, styles);
+	}
 
-    /**
-     * @see BackgroundColorSpan#BackgroundColorSpan(int)
-     */
-    public static TextDecoratorBuilder backgroundColor(Context context, @ColorRes int colorRes) {
-        return new TextDecoratorBuilder(new BackgroundColorTextDecorator(context, colorRes));
-    }
+	public Text withContext(Context context) {
+		this.context = context;
+		return this;
+	}
 
-    /**
-     * @see BlurMaskFilter#BlurMaskFilter(float, BlurMaskFilter.Blur)
-     */
-    public static TextDecoratorBuilder blur(float radius, BlurMaskFilter.Blur style) {
-        return new TextDecoratorBuilder(new BlurTextDecorator(radius, style));
-    }
+	/**
+	 * @see BackgroundColorSpan#BackgroundColorSpan(int)
+	 */
+	public static TextDecoratorBuilder backgroundColor(@ColorInt int color) {
+		return new TextDecoratorBuilder(new BackgroundColorTextDecorator(color));
+	}
 
-    /**
-     * @see Typeface#BOLD
-     */
-    public static TextDecoratorBuilder bold() {
-        return new TextDecoratorBuilder(new BoldTextDecorator());
-    }
+	/**
+	 * @see BackgroundColorSpan#BackgroundColorSpan(int)
+	 */
+	public static TextDecoratorBuilder backgroundColor(Context context, @ColorRes int colorRes) {
+		return new TextDecoratorBuilder(new BackgroundColorTextDecorator(context, colorRes));
+	}
 
-    /**
-     * <b>Note:</b> Movement method is needed: {@link TextView#setMovementMethod(MovementMethod) TextView.setMovementMethod(LinkMovementMethod.getInstance())}
-     *
-     * @see ClickableSpan#ClickableSpan()
-     */
-    public static TextDecoratorBuilder click(View.OnClickListener listener) {
-        return new TextDecoratorBuilder(new ClickTextDecorator(listener));
-    }
+	/**
+	 * @see BlurMaskFilter#BlurMaskFilter(float, BlurMaskFilter.Blur)
+	 */
+	public static TextDecoratorBuilder blur(float radius, BlurMaskFilter.Blur style) {
+		return new TextDecoratorBuilder(new BlurTextDecorator(radius, style));
+	}
 
-    /**
-     * @see ForegroundColorSpan#ForegroundColorSpan(int)
-     */
-    public static TextDecoratorBuilder color(@ColorInt int color) {
-        return new TextDecoratorBuilder(new ColorTextDecorator(color));
-    }
+	/**
+	 * @see Typeface#BOLD
+	 */
+	public static TextDecoratorBuilder bold() {
+		return new TextDecoratorBuilder(new BoldTextDecorator());
+	}
 
-    /**
-     * @see ForegroundColorSpan#ForegroundColorSpan(int)
-     */
-    public static TextDecoratorBuilder color(Context context, @ColorRes int colorRes) {
-        return new TextDecoratorBuilder(new ColorTextDecorator(context, colorRes));
-    }
+	/**
+	 * <b>Note:</b> Movement method is needed: {@link TextView#setMovementMethod(MovementMethod) TextView.setMovementMethod(LinkMovementMethod.getInstance())}
+	 *
+	 * @see ClickableSpan#ClickableSpan()
+	 */
+	public static TextDecoratorBuilder click(View.OnClickListener listener) {
+		return new TextDecoratorBuilder(new ClickTextDecorator(listener));
+	}
 
-    /**
-     * @see EmbossMaskFilter#EmbossMaskFilter(float[], float, float, float)
-     */
-    public static TextDecoratorBuilder emboss(float[] direction, float ambient, float specular, float blurRadius) {
-        return new TextDecoratorBuilder(new EmbossTextDecorator(direction, ambient, specular, blurRadius));
-    }
+	/**
+	 * @see ForegroundColorSpan#ForegroundColorSpan(int)
+	 */
+	public static TextDecoratorBuilder color(@ColorInt int color) {
+		return new TextDecoratorBuilder(new ColorTextDecorator(color));
+	}
 
-    /**
-     * @see Typeface#ITALIC
-     */
-    public static TextDecoratorBuilder italic() {
-        return new TextDecoratorBuilder(new ItalicTextDecorator());
-    }
+	/**
+	 * @see ForegroundColorSpan#ForegroundColorSpan(int)
+	 */
+	public static TextDecoratorBuilder color(Context context, @ColorRes int colorRes) {
+		return new TextDecoratorBuilder(new ColorTextDecorator(context, colorRes));
+	}
 
-    /**
-     * @see LocaleSpan#LocaleSpan(LocaleList)
-     */
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public static TextDecoratorBuilder locale(LocaleList localeList) {
-        return new TextDecoratorBuilder(new LocaleTextDecorator(localeList));
-    }
+	/**
+	 * @see EmbossMaskFilter#EmbossMaskFilter(float[], float, float, float)
+	 */
+	public static TextDecoratorBuilder emboss(float[] direction, float ambient, float specular, float blurRadius) {
+		return new TextDecoratorBuilder(new EmbossTextDecorator(direction, ambient, specular, blurRadius));
+	}
 
-    /**
-     * @see LocaleSpan#LocaleSpan(Locale)
-     */
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public static TextDecoratorBuilder locale(Locale locale) {
-        return new TextDecoratorBuilder(new LocaleTextDecorator(locale));
-    }
+	/**
+	 * @see Typeface#ITALIC
+	 */
+	public static TextDecoratorBuilder italic() {
+		return new TextDecoratorBuilder(new ItalicTextDecorator());
+	}
 
-    /**
-     * @see Typeface#NORMAL
-     */
-    public static TextDecoratorBuilder normal() {
-        return new TextDecoratorBuilder(new NormalTextDecorator());
-    }
+	/**
+	 * @see LocaleSpan#LocaleSpan(LocaleList)
+	 */
+	@RequiresApi(api = Build.VERSION_CODES.N)
+	public static TextDecoratorBuilder locale(LocaleList localeList) {
+		return new TextDecoratorBuilder(new LocaleTextDecorator(localeList));
+	}
 
-    /**
-     * @see ScaleXSpan#ScaleXSpan(float)
-     */
-    public static TextDecoratorBuilder scaleX(float proportion) {
-        return new TextDecoratorBuilder(new ScaleXTextDecorator(proportion));
-    }
+	/**
+	 * @see LocaleSpan#LocaleSpan(Locale)
+	 */
+	@RequiresApi(api = Build.VERSION_CODES.N)
+	public static TextDecoratorBuilder locale(Locale locale) {
+		return new TextDecoratorBuilder(new LocaleTextDecorator(locale));
+	}
 
-    /**
-     * @see AbsoluteSizeSpan#AbsoluteSizeSpan(int)
-     */
-    public static TextDecoratorBuilder size(int size) {
-        return new TextDecoratorBuilder(new SizeTextDecorator(size));
-    }
+	/**
+	 * @see Typeface#NORMAL
+	 */
+	public static TextDecoratorBuilder normal() {
+		return new TextDecoratorBuilder(new NormalTextDecorator());
+	}
 
-    /**
-     * @see AbsoluteSizeSpan#AbsoluteSizeSpan(int, boolean)
-     */
-    public static TextDecoratorBuilder size(int size, boolean dip) {
-        return new TextDecoratorBuilder(new SizeTextDecorator(size, dip));
-    }
+	/**
+	 * @see ScaleXSpan#ScaleXSpan(float)
+	 */
+	public static TextDecoratorBuilder scaleX(float proportion) {
+		return new TextDecoratorBuilder(new ScaleXTextDecorator(proportion));
+	}
 
-    /**
-     * @see RelativeSizeSpan#RelativeSizeSpan(float)
-     */
-    public static TextDecoratorBuilder size(float proportion) {
-        return new TextDecoratorBuilder(new SizeTextDecorator(proportion));
-    }
+	/**
+	 * @see AbsoluteSizeSpan#AbsoluteSizeSpan(int)
+	 */
+	public static TextDecoratorBuilder size(int size) {
+		return new TextDecoratorBuilder(new SizeTextDecorator(size));
+	}
 
-    /**
-     * @see StrikethroughSpan#StrikethroughSpan()
-     */
-    public static TextDecoratorBuilder strikethrough() {
-        return new TextDecoratorBuilder(new StrikethroughTextDecorator());
-    }
+	/**
+	 * @see AbsoluteSizeSpan#AbsoluteSizeSpan(int, boolean)
+	 */
+	public static TextDecoratorBuilder size(int size, boolean dip) {
+		return new TextDecoratorBuilder(new SizeTextDecorator(size, dip));
+	}
 
-    /**
-     * @see TextAppearanceSpan#TextAppearanceSpan(Context, int)
-     */
-    public static TextDecoratorBuilder style(Context context, @StyleRes int appearance) {
-        return new TextDecoratorBuilder(new StyleTextDecorator(context, appearance));
-    }
+	/**
+	 * @see RelativeSizeSpan#RelativeSizeSpan(float)
+	 */
+	public static TextDecoratorBuilder size(float proportion) {
+		return new TextDecoratorBuilder(new SizeTextDecorator(proportion));
+	}
 
-    /**
-     * @see TextAppearanceSpan#TextAppearanceSpan(Context, int, int)
-     */
-    public static TextDecoratorBuilder style(Context context, @StyleRes int appearance, int colorList) {
-        return new TextDecoratorBuilder(new StyleTextDecorator(context, appearance, colorList));
-    }
+	/**
+	 * @see StrikethroughSpan#StrikethroughSpan()
+	 */
+	public static TextDecoratorBuilder strikethrough() {
+		return new TextDecoratorBuilder(new StrikethroughTextDecorator());
+	}
 
-    /**
-     * @see TextAppearanceSpan#TextAppearanceSpan(String, int, int, ColorStateList, ColorStateList)
-     */
-    public static TextDecoratorBuilder style(String family, int style, int size, ColorStateList color, ColorStateList linkColor) {
-        return new TextDecoratorBuilder(new StyleTextDecorator(family, style, size, color, linkColor));
-    }
+	/**
+	 * @see TextAppearanceSpan#TextAppearanceSpan(Context, int)
+	 */
+	public static TextDecoratorBuilder style(Context context, @StyleRes int appearance) {
+		return new TextDecoratorBuilder(new StyleTextDecorator(context, appearance));
+	}
 
-    /**
-     * @see SubscriptSpan#SubscriptSpan()
-     */
-    public static TextDecoratorBuilder subscript() {
-        return new TextDecoratorBuilder(new SubscriptTextDecorator());
-    }
+	/**
+	 * @see TextAppearanceSpan#TextAppearanceSpan(Context, int, int)
+	 */
+	public static TextDecoratorBuilder style(Context context, @StyleRes int appearance, int colorList) {
+		return new TextDecoratorBuilder(new StyleTextDecorator(context, appearance, colorList));
+	}
 
-    /**
-     * @see SuperscriptSpan#SuperscriptSpan()
-     */
-    public static TextDecoratorBuilder superscript() {
-        return new TextDecoratorBuilder(new SuperscriptTextDecorator());
-    }
+	/**
+	 * @see TextAppearanceSpan#TextAppearanceSpan(String, int, int, ColorStateList, ColorStateList)
+	 */
+	public static TextDecoratorBuilder style(String family, int style, int size, ColorStateList color, ColorStateList linkColor) {
+		return new TextDecoratorBuilder(new StyleTextDecorator(family, style, size, color, linkColor));
+	}
 
-    /**
-     * @see TypefaceSpan#TypefaceSpan(String)
-     */
-    public static TextDecoratorBuilder typeface(String typeface) {
-        return new TextDecoratorBuilder(new TypefaceTextDecorator(typeface));
-    }
+	/**
+	 * @see SubscriptSpan#SubscriptSpan()
+	 */
+	public static TextDecoratorBuilder subscript() {
+		return new TextDecoratorBuilder(new SubscriptTextDecorator());
+	}
 
-    /**
-     * @see UnderlineSpan#UnderlineSpan()
-     */
-    public static TextDecoratorBuilder underline() {
-        return new TextDecoratorBuilder(new UnderlineTextDecorator());
-    }
+	/**
+	 * @see SuperscriptSpan#SuperscriptSpan()
+	 */
+	public static TextDecoratorBuilder superscript() {
+		return new TextDecoratorBuilder(new SuperscriptTextDecorator());
+	}
 
-    /**
-     * @see URLSpan#URLSpan(String)
-     */
-    public static TextDecoratorBuilder url(String url) {
-        return new TextDecoratorBuilder(new UrlTextDecorator(url));
-    }
+	/**
+	 * @see TypefaceSpan#TypefaceSpan(String)
+	 */
+	public static TextDecoratorBuilder typeface(String typeface) {
+		return new TextDecoratorBuilder(new TypefaceTextDecorator(typeface));
+	}
+
+	/**
+	 * @see UnderlineSpan#UnderlineSpan()
+	 */
+	public static TextDecoratorBuilder underline() {
+		return new TextDecoratorBuilder(new UnderlineTextDecorator());
+	}
+
+	/**
+	 * @see URLSpan#URLSpan(String)
+	 */
+	public static TextDecoratorBuilder url(String url) {
+		return new TextDecoratorBuilder(new UrlTextDecorator(url));
+	}
 
 
-    public Text append(@StringRes int text) {
-        return append(text, new TextDecoratorBuilder());
-    }
+	public Text append(@StringRes int text) {
+		return append(text, new TextDecoratorBuilder());
+	}
 
-    public Text append(@StringRes int text, TextDecorator... textDecorators) {
-        return append(text, new TextDecoratorBuilder(textDecorators));
-    }
+	public Text append(@StringRes int text, TextDecorator... textDecorators) {
+		return append(text, new TextDecoratorBuilder(textDecorators));
+	}
 
-    public Text append(@StringRes int text, TextDecoratorBuilder styles) {
-        if (context == null){
-            throw new NullPointerException("Context is null, please set context with withContext(Context) method");
-        }
-        return append(context.getString(text), styles);
-    }
+	public Text append(@StringRes int text, TextDecoratorBuilder styles) {
+		if (context == null) {
+			throw new NullPointerException("Context is null, please set context with withContext(Context) method");
+		}
+		return append(context.getString(text), styles);
+	}
 
-    public Text append(CharSequence text) {
-        return append(text, new TextDecoratorBuilder());
-    }
+	public Text append(CharSequence text) {
+		return append(text, new TextDecoratorBuilder());
+	}
 
-    public Text append(CharSequence text, TextDecorator... textDecorators) {
-        return append(text, new TextDecoratorBuilder(textDecorators));
-    }
+	public Text append(CharSequence text, TextDecorator... textDecorators) {
+		return append(text, new TextDecoratorBuilder(textDecorators));
+	}
 
-    public Text append(CharSequence text, TextDecoratorBuilder styles) {
-        int start = builder.length();
-        builder.append(text);
-        for (TextDecorator textDecorator : styles.getTextDecorators()) {
-            textDecorator.apply(builder, start, start + text.length());
-        }
-        return this;
-    }
+	public Text append(CharSequence text, TextDecoratorBuilder styles) {
+		if (text != null) {
+			int start = builder.length();
+			builder.append(text);
+			for (TextDecorator textDecorator : styles.getTextDecorators()) {
+				textDecorator.apply(builder, start, start + text.length());
+			}
+		} else if (NULL_AS_EMPTY) {
+			int start = builder.length();
+			builder.append("null");
+			for (TextDecorator textDecorator : styles.getTextDecorators()) {
+				textDecorator.apply(builder, start, start + 4);
+			}
+		}
+		return this;
+	}
 
-    @Override
-    public int length() {
-        return builder.length();
-    }
+	@Override
+	public int length() {
+		return builder.length();
+	}
 
-    @Override
-    public char charAt(int index) {
-        return builder.charAt(index);
-    }
+	@Override
+	public char charAt(int index) {
+		return builder.charAt(index);
+	}
 
-    @Override
-    public CharSequence subSequence(int start, int end) {
-        return builder.subSequence(start, end);
-    }
+	@Override
+	public CharSequence subSequence(int start, int end) {
+		return builder.subSequence(start, end);
+	}
 
-    @Override
-    public void setSpan(Object what, int start, int end, int flags) {
-        builder.setSpan(what, start, end, flags);
-    }
+	@Override
+	public void setSpan(Object what, int start, int end, int flags) {
+		builder.setSpan(what, start, end, flags);
+	}
 
-    @Override
-    public void removeSpan(Object what) {
-        builder.removeSpan(what);
-    }
+	@Override
+	public void removeSpan(Object what) {
+		builder.removeSpan(what);
+	}
 
-    @Override
-    public <T> T[] getSpans(int start, int end, Class<T> type) {
-        return builder.getSpans(start, end, type);
-    }
+	@Override
+	public <T> T[] getSpans(int start, int end, Class<T> type) {
+		return builder.getSpans(start, end, type);
+	}
 
-    @Override
-    public int getSpanStart(Object tag) {
-        return builder.getSpanStart(tag);
-    }
+	@Override
+	public int getSpanStart(Object tag) {
+		return builder.getSpanStart(tag);
+	}
 
-    @Override
-    public int getSpanEnd(Object tag) {
-        return builder.getSpanEnd(tag);
-    }
+	@Override
+	public int getSpanEnd(Object tag) {
+		return builder.getSpanEnd(tag);
+	}
 
-    @Override
-    public int getSpanFlags(Object tag) {
-        return builder.getSpanFlags(tag);
-    }
+	@Override
+	public int getSpanFlags(Object tag) {
+		return builder.getSpanFlags(tag);
+	}
 
-    @Override
-    public int nextSpanTransition(int start, int limit, Class type) {
-        return builder.nextSpanTransition(start, limit, type);
-    }
+	@Override
+	public int nextSpanTransition(int start, int limit, Class type) {
+		return builder.nextSpanTransition(start, limit, type);
+	}
 
-    @NonNull
-    @Override
-    public String toString() {
-        return builder.toString();
-    }
+	@NonNull
+	@Override
+	public String toString() {
+		return builder.toString();
+	}
 
 }
