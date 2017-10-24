@@ -5,7 +5,7 @@ Library to simplify android text styling
 
 ```Gradle
 dependencies {
-    compile 'software.rsquared:text-decorator:1.0.1'
+    compile 'software.rsquared:text-decorator:1.0.2'
 }
 ```
 
